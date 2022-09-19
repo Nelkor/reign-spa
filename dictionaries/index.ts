@@ -1,6 +1,7 @@
 import { rmSync, mkdirSync, writeFileSync, existsSync } from 'fs'
 import { createHash } from 'crypto'
 
+import { compareTranslationKeys } from './sorter'
 import { ru } from './set/ru'
 import { en } from './set/en'
 import { iw } from './set/iw'
@@ -16,7 +17,7 @@ mkdirSync(dictionariesDist)
 Object.entries({ ru, en, iw }).forEach(([langName, dictionary]) => {
   const translationsJson = JSON.stringify(
     Object.entries(dictionary)
-      .sort(([a], [b]) => +a - +b)
+      .sort(compareTranslationKeys)
       .map(([, value]) => value)
   )
 

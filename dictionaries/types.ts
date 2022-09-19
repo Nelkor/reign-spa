@@ -1,3 +1,3 @@
-import { D } from '@/i18n'
+import { TranslationKey } from '@/i18n/translation-keys'
 
-export type Dictionary = Record<D, string>
+export type Dictionary = Record<TranslationKey, string>
