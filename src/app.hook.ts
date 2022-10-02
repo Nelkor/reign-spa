@@ -1,9 +1,13 @@
 import { ref } from 'vue'
 
+import { loadCurrentLanguage } from '@/i18n'
+
 export const useApp = () => {
-  const counter = ref(0)
+  const isAppReady = ref(false)
 
-  const increment = () => counter.value++
+  loadCurrentLanguage().then(() => {
+    isAppReady.value = true
+  })
 
-  return { counter, increment }
+  return { isAppReady }
 }

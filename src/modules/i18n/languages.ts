@@ -16,3 +16,5 @@ export const languages: DeepReadonly<Record<string, Language>> = {
     rtl: true,
   },
 }
+
+export const mainLanguageName = Object.keys(languages)[0]

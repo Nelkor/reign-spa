@@ -1,10 +1,14 @@
 <script setup lang="ts">
+import { LanguageSelector } from '@/i18n'
+import { MainPage } from '@/main-page'
+
 import { useApp } from './app.hook'
 
-const { counter, increment } = useApp()
+const { isAppReady } = useApp()
 </script>
 
 <template>
-  <h1>{{ counter }}</h1>
-  <button @click="increment">Click me!</button>
+  <LanguageSelector />
+  <MainPage v-if="isAppReady" />
+  <div v-else>Wait...</div>
 </template>

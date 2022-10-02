@@ -6,8 +6,8 @@
     "ts": "tsc --noemit",
     "lint": "eslint . --ext .ts --fix",
     "format": "prettier .*rc **/*.json **/*.scss --write",
-    "build": "ts-node dictionaries && webpack",
-    "serve": "webpack serve"
+    "build": "ts-node dictionaries && webpack && ts-node dictionaries/post-build",
+    "serve": "ts-node dictionaries && webpack serve"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
